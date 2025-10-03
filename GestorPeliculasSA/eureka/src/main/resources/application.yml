@@ -1,0 +1,15 @@
+server:
+  port: 8765
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: mcsv-eureka
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    hostname: localhost
+

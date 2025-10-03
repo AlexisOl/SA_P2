@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+     //   stage('Compile & Test') {
+       //     steps {
+      //          sh 'cd micro-servicios-parque-mini-golf/microservice-proveedores && mvn test'
+        //    }
+        //}
+
+
+        stage('Deploy') {
+            steps {
+                sh 'cd microServicio_Hoteleria_Restaurante/Usuario && mvn package -DskipTests'
+                sh 'cd microServicio_Hoteleria_Restaurante/Usuario/target/config-dev-docker && sudo docker-compose down'
+                sh 'cd microServicio_Hoteleria_Restaurante/Usuario/target/config-dev-docker && sudo docker-compose up --build -d'
+                echo "Despliegue a DEV exitoso"
+
+            }
+        }
+    }
+}
