@@ -10,4 +10,5 @@ public class CrearCineDTO {
     private String nombre;
     private String ubicacion;
     private String telefono;
+    private Double costo;
 }
