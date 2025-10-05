@@ -6,13 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ValidacionesSala {
-    private boolean validarComnentarios;
-    private boolean validarCalificaciones;
+    private boolean validar_comnentarios;
+    private boolean validar_calificaciones;
     private boolean visible;
 
-    public ValidacionesSala(boolean validarComnentarios, boolean validarCalificaciones, boolean visible) {
-        this.validarComnentarios = validarComnentarios;
-        this.validarCalificaciones = validarCalificaciones;
+    public ValidacionesSala(boolean validar_comnentarios, boolean validar_calificaciones, boolean visible) {
+        this.validar_comnentarios = validar_comnentarios;
+        this.validar_calificaciones = validar_calificaciones;
         this.visible = visible;
     }
 }
