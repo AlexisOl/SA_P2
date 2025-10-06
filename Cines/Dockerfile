@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY target/mcsv-cines.jar /app/mcsv-cines.jar
 
-EXPOSE 8088
+EXPOSE 8081
 
 ENTRYPOINT ["java", "-jar", "mcsv-cines.jar"]

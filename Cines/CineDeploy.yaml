@@ -1,26 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: title
+  name: cine-deploy
   labels:
-    app: title
+    app: cine
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: title
+      app: cine
   template:
     metadata:
-      name: title
       labels:
-        app: title
+        app: cine
     spec:
       containers:
-        - name: title
-          image: nginx
-          imagePullPolicy: IfNotPresent
+        - name: cine
+          image: alexxus/microservicio-cine:v2
+          imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8081
               protocol: TCP
-      restartPolicy: Always
-      
+          env:
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: "http://eureka-service:8765/eureka/"
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mariadb://40.233.27.238:3307/cinema_db
+            - name: SPRING_DATASOURCE_USERNAME
+              value: app_user
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: appSa456.
