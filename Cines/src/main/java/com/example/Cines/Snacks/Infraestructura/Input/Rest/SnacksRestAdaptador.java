@@ -42,12 +42,12 @@ public class SnacksRestAdaptador {
     }
 
     @GetMapping("/cine/{idCine}")
-    public List<ResponseSnacksDTO> listadoSnacksPorCine(@PathVariable UUID idCine) {
+    public List<ResponseSnacksDTO> listadoSnacksPorCine(@PathVariable("idCine")  UUID idCine) {
         return this.snacksRestMapper.toResponseSnacksDTOList(this.listarSnacksCineInputPort.ListarSnack(idCine)) ;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseSnacksDTO> listadoCostosPorCine(@PathVariable UUID id) {
+    public ResponseEntity<ResponseSnacksDTO> listadoCostosPorCine(@PathVariable("id")  UUID id) {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .body(this.snacksRestMapper.toResponseSnacksDTO(this.listarSnacksEspecificasInputPort.ListarSnacksEspecificas(id))) ;
     }

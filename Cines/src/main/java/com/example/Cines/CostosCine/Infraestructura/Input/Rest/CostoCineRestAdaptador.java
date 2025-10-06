@@ -38,7 +38,7 @@ public class CostoCineRestAdaptador {
     }
 
     @GetMapping("/cine/{idCine}")
-    public List<ResponseCostoCineDTO> listadoCostosPorCine(@PathVariable UUID idCine) {
+    public List<ResponseCostoCineDTO> listadoCostosPorCine(@PathVariable("idCine")  UUID idCine) {
         return this.costoCineRestMapper.toReponseCineDtoList(this.listarCostosCineEspecificoInputPort.listarCostosCineEspecifico(idCine)) ;
     }
 }
