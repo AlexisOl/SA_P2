@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cine
-          image: alexxus/microservicio-cine:v2
+          image: alexxus/microservicio-cine:v4
           imagePullPolicy: Always
           ports:
             - containerPort: 8081

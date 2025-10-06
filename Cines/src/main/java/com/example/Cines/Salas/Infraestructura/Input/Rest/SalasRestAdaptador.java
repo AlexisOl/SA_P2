@@ -45,12 +45,12 @@ public class SalasRestAdaptador {
     }
 
     @GetMapping("/cine/{idCine}")
-    public List<ResponseSalasDTO> listadoSalasPorCine(@PathVariable UUID idCine) {
+    public List<ResponseSalasDTO> listadoSalasPorCine(@PathVariable("idCine") UUID idCine) {
         return this.salasRestMapper.toResponseSalasDTOList(this.listarSalasPorCineInputPort.ListarSalasPorCine(idCine)) ;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseSalasDTO> listadoSalasEspecifica(@PathVariable UUID id) {
+    public ResponseEntity<ResponseSalasDTO> listadoSalasEspecifica(@PathVariable("id")  UUID id) {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .body(this.salasRestMapper.toResponseSalasDTO(this.listarSalaEspecificaInputPort.listarSalaEspecifica(id))) ;
     }
