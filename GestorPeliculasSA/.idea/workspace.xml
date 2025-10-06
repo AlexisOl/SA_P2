@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="47beb8be-1eb8-4609-954e-4389ad5dbb86" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/CasoUso/CrearCine/CrearCIneServicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/CasoUso/CrearCine/CrearCineDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/CasoUso/EditarCine/EditarCIneServicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/CasoUso/EditarCine/EditarCineDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/CasoUso/ListarCineEspecifico/ListarCIneEspecificoServicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/CasoUso/ListarCines/ListarCinesServicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Input/CrearCineInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Input/EditarCineInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Input/ListarCineEspecificoInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Input/ListarCinesInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Output/CrearCineOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Output/EditarCIneOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Output/ExisteCineOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Output/ListarCineEspecificoOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Aplicacion/Ports/Output/ListarCinesOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Dominio/Cine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Input/Rest/CineAdapatadorRest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Input/Rest/Mapper/CineRestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Input/Rest/Models/Response/ResponseCineDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Output/CineAdaptadorPersistencia.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Output/Entity/CineEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Output/Mapper/CineMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Cine/Infraestructura/Output/Repository/CineRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CinesApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/CasoUso/CrearCostoCIne/CrearCostosCine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/CasoUso/CrearCostoCIne/CrearCostosCineDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/CasoUso/ListarCostosCineEspecifico/ListarCostosCineEspecifico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/Ports/Input/CrearCostoCineInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/Ports/Input/ListarCostosCineEspecificoInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/Ports/Output/CrearCostoCIneOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Aplicacion/Ports/Output/ListarCostosCineEspecificoOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Dominio/CostoCine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Dominio/ObjetosValor/FechaCostoCine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Input/Rest/CostoCineRestAdaptador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Input/Rest/Mapper/CostoCineRestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Input/Rest/Models/ResponseCostoCineDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Output/CostoCInePersistenciaAdapatador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Output/Entity/CostoCineEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Output/Mapper/CostoCIneMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/CostosCine/Infraestructura/Output/Repository/CostoCineRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/CasoUso/CrearSala/CrearSalaDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/CasoUso/CrearSala/CrearSalaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/CasoUso/EditarSala/EditarSalaDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/CasoUso/EditarSala/EditarSalaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/CasoUso/ListarSalaEspecifica/ListarSalaEspecificaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/CasoUso/ListarSalasPorCine/LiatarSalasPorCineService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Factory/ConstruccionDeSalaFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Input/CrearSalaEnCineInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Input/EditarSalaInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Input/ListarSalaEspecificaInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Input/ListarSalasPorCineInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Output/CrearSalaEnCineOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Output/EditarSalaOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Output/ExisteSalaEspecificaOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Output/ListarSalaEspecificaOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Aplicacion/Ports/Output/ListarSalasPorCineOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Dominio/ObjetosValor/MatrizAsientos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Dominio/ObjetosValor/ValidacionesSala.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Dominio/Salas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Dominio/TipoSala.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Input/Rest/Mapper/SalasRestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Input/Rest/Models/ResponseSalasDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Input/Rest/SalasRestAdaptador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Output/Entity/SalasEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Output/Mapper/SalasMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Output/Repository/SalasRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas/Infraestructura/Output/SalasPersistenciaAdaptador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/CasoUso/CrearSnacks/CrearSnacksDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/CasoUso/CrearSnacks/CrearSnacksService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/CasoUso/ListarSnackEspecifica/ListarSnackEspecificaServicio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/CasoUso/ListarSnacksPorCine/ListarSnacksPorCineService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/Ports/Input/CrearSnackInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/Ports/Input/ListarSnacksCineInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/Ports/Input/ListarSnacksEspecificasInputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/Ports/Output/CrearSnackOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/Ports/Output/ListarSnacksCineOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Aplicacion/Ports/Output/ListarSnacksEspecificasOutputPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Dominio/ObjetosValor/ValidacionesSnacks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Dominio/Snacks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Dominio/TipoSnacks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Input/Rest/Mapper/SnacksRestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Input/Rest/Models/ResponseSnacksDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Input/Rest/SnacksRestAdaptador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Output/Entity/SnacksEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Output/Mapper/SnacksMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Output/Repository/SnacksRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks/Infraestructura/Output/SnacksPersistenciaAdaptador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/test/java/com/example/Cines/Cine/Aplicacion/CasoUso/CrearCine/CrearCIneServicioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cines/src/test/java/com/example/Cines/CinesApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkins-usuario/Jenkinsfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/src/main/java/com/example/Peliculas/PeliculasApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Peliculas/src/test/java/com/example/Peliculas/PeliculasApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/src/main/java/com/example/Usuarios/UsuariosApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuarios/src/test/java/com/example/Usuarios/UsuariosApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/main/java/com/example/eureka/EurekaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/test/java/com/example/eureka/EurekaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/example/gateway/GatewayApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/example/gateway/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/test/java/com/example/gateway/GatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Dockerfile" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="33XbxrDHTzAFTcX8rJUGnayv1rv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.Cines [test].executor": "Run",
+    "Maven.GestorPeliculasSA [test].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.CinesApplication.executor": "Run",
+    "Spring Boot.EurekaApplication.executor": "Run",
+    "Spring Boot.GatewayApplication.executor": "Run",
+    "Spring Boot.GestorPeliculasSaApplication.executor": "Run",
+    "Spring Boot.PeliculasApplication.executor": "Run",
+    "Spring Boot.UsuariosApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "cine-microservicio",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/alexxus/Documents/Documentos/Documentos/SISTEMAS/Software_Avanzado/proyecto2Backend/Cines",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Snacks" />
+      <recent name="$PROJECT_DIR$/Cines/src/main/java/com/example/Cines/Salas" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.Cines.Cine.Aplicacion.CasoUso.CrearCine" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="hiddenConfigurations">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <set>
+              <option value="GestorPeliculasSaApplication" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="CinesApplication" value="STOPPED" />
+              <entry key="EurekaApplication" value="STOPPED" />
+              <entry key="GatewayApplication" value="STOPPED" />
+              <entry key="PeliculasApplication" value="STOPPED" />
+              <entry key="UsuariosApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CinesApplication">
+    <configuration name="CinesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Cines" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Cines.CinesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eureka.EurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GestorPeliculasSaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="GestorPeliculasSA" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.GestorPeliculasSA.GestorPeliculasSaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PeliculasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Peliculas" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Peliculas.PeliculasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsuariosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Usuarios" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Usuarios.UsuariosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.CinesApplication" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.PeliculasApplication" />
+      <item itemvalue="Spring Boot.UsuariosApplication" />
+      <item itemvalue="Spring Boot.GestorPeliculasSaApplication" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47beb8be-1eb8-4609-954e-4389ad5dbb86" name="Changes" comment="" />
+      <created>1759466614057</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759466614057</updated>
+      <workItem from="1759466615132" duration="6865000" />
+      <workItem from="1759507028837" duration="4843000" />
+      <workItem from="1759605130688" duration="20968000" />
+      <workItem from="1759706033558" duration="1580000" />
+      <workItem from="1759725648443" duration="78000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
