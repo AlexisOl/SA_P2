@@ -1,8 +1,8 @@
 package com.example.Cines.BloqueoAnuncio.Aplicacion.CasosUso.ListarBloqueoAnuncioEspecifico;
 
-import com.example.Anuncios.BloqueoAnuncio.Aplicacion.ports.Input.ListadoBloqueosCineInputPort;
-import com.example.Anuncios.BloqueoAnuncio.Aplicacion.ports.Output.ListadoBloqueosCineOutputPort;
-import com.example.Anuncios.BloqueoAnuncio.Dominio.BloqueoAnuncio;
+import com.example.Cines.BloqueoAnuncio.Aplicacion.ports.Input.ListadoBloqueosCineInputPort;
+import com.example.Cines.BloqueoAnuncio.Aplicacion.ports.Output.ListadoBloqueosCineOutputPort;
+import com.example.Cines.BloqueoAnuncio.Dominio.BloqueoAnuncio;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

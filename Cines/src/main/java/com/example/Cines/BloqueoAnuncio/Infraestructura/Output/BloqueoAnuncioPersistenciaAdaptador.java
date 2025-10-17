@@ -38,7 +38,7 @@ public class BloqueoAnuncioPersistenciaAdaptador implements CrearBloqueoAnuncios
     @Override
     public List<BloqueoAnuncio> listadoBloqueosCine(UUID idCine) {
         return this.bloqueoAnuncioMapper.toBloqueoAnuncioList(
-                this.bloqueoAnuncioRepository.findAllByIdCine(idCine)
+                this.bloqueoAnuncioRepository.findAllByIdCine_Id(idCine)
         );
     }
 }

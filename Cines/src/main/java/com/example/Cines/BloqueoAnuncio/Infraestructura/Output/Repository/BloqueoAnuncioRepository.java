@@ -14,7 +14,7 @@ public interface BloqueoAnuncioRepository extends JpaRepository<BloqueoAnuncioEn
 
     @Query("SELECT CASE WHEN COUNT(b) > 0 THEN true ELSE false END " +
             "FROM BloqueoAnuncioEntity b " +
-            "WHERE b.idCine = :cine " +
+            "WHERE b.idCine.id = :cine " +
             "AND (" +
             "   (:fechaInicio BETWEEN b.fecha AND b.fecha_fin) OR " +
             "   (:fechaFinal BETWEEN b.fecha AND b.fecha_fin) OR " +
@@ -25,5 +25,5 @@ public interface BloqueoAnuncioRepository extends JpaRepository<BloqueoAnuncioEn
                                        @Param("fechaInicio") LocalDate fechaInicio,
                                        @Param("fechaFinal") LocalDate fechaFinal);
 
-    List<BloqueoAnuncioEntity> findAllByIdCine(UUID idCine);
+    List<BloqueoAnuncioEntity> findAllByIdCine_Id(UUID idCine);
 }
