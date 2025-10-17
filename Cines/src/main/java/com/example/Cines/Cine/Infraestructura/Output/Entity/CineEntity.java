@@ -30,4 +30,7 @@ public class CineEntity {
     private String telefono;
     @Column(nullable = false)
     private LocalDate fechaCreacion;
+    @Column(nullable = false)
+    private double cartera;
+
 }

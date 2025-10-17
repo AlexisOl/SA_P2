@@ -12,4 +12,6 @@ public class ResponseCineDTO {
     private String ubicacion;
     private String telefono;
     private LocalDate fechaCreacion;
+    private double cartera;
+
 }

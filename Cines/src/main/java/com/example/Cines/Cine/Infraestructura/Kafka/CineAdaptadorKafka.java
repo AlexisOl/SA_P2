@@ -1,6 +1,10 @@
 package com.example.Cines.Cine.Infraestructura.Kafka;
 
+import com.example.Cines.Cine.Aplicacion.Ports.Input.CambioMonetarioInputPort;
 import com.example.Cines.Cine.Aplicacion.Ports.Input.ExisteCineInputPort;
+import com.example.Cines.Cine.Infraestructura.Kafka.DTO.EstadoMonetarioAnuncioComprado.AnuncioCreadoDTO;
+import com.example.Cines.Cine.Infraestructura.Kafka.DTO.EstadoMonetarioAnuncioComprado.AnuncioFallidoDTO;
+import com.example.Cines.Cine.Infraestructura.Kafka.DTO.EstadoMonetarioAnuncioComprado.CineActualizadoDTO;
 import com.example.Cines.Cine.Infraestructura.Kafka.DTO.VerficarCIne.VerificarCineDTO;
 import com.example.Cines.Cine.Infraestructura.Kafka.DTO.VerficarCIne.VerificarCineRespuestaDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,14 +19,20 @@ import org.springframework.messaging.Message;
 @Component
 public class CineAdaptadorKafka {
     private final ExisteCineInputPort existeCineInputPort;
+    private final CambioMonetarioInputPort cambioMonetarioInputPort;
+
+
+
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
     public CineAdaptadorKafka(ExisteCineInputPort existeCineInputPort,
+                              CambioMonetarioInputPort cambioMonetarioInputPort,
                             KafkaTemplate<String, String> kafkaTemplate,
                             ObjectMapper objectMapper) {
         this.existeCineInputPort = existeCineInputPort;
         this.kafkaTemplate = kafkaTemplate;
+        this.cambioMonetarioInputPort=cambioMonetarioInputPort;
         this.objectMapper = objectMapper;
     }
 
@@ -49,4 +59,49 @@ public class CineAdaptadorKafka {
 
         kafkaTemplate.send(kafkaMessage);
     }
+
+
+
+    // para los anuncios comprados
+    @KafkaListener(topics = "propiedad-anuncio-creado", groupId = "cines-group")
+    public void handlePropiedadAnuncioCreado(@Payload String mensaje, @Header(KafkaHeaders.CORRELATION_ID) String correlationId) throws Exception {
+        AnuncioCreadoDTO evento = objectMapper.readValue(mensaje, AnuncioCreadoDTO.class);
+
+        boolean exito = false;
+        String motivoFallo = "Error desconocido";
+        if (!existeCineInputPort.existeCineEspecifico(evento.getIdCine())) {
+            motivoFallo = "Cine no existe";
+        } else {
+            exito = this.cambioMonetarioInputPort.cambioMonetario(evento.getIdCine(), evento.getCosto(), true);
+            if (!exito) {
+                motivoFallo = "Failed to update cinema revenue";
+            }
+        }
+
+        if (exito) {
+            CineActualizadoDTO respuesta = new CineActualizadoDTO();
+            respuesta.setAnuncioId(evento.getAnuncioId());
+            respuesta.setCorrelationId(correlationId);
+            String respuestaMensaje = objectMapper.writeValueAsString(respuesta);
+            Message<String> kafkaMessage = MessageBuilder
+                    .withPayload(respuestaMensaje)
+                    .setHeader(KafkaHeaders.TOPIC, "cine-actualizado")
+                    .setHeader(KafkaHeaders.CORRELATION_ID, correlationId)
+                    .build();
+            kafkaTemplate.send(kafkaMessage);
+        } else {
+            AnuncioFallidoDTO fallo = new AnuncioFallidoDTO();
+            fallo.setAnuncioId(evento.getAnuncioId());
+            fallo.setMotivoFallo(motivoFallo);
+            fallo.setCorrelationId(correlationId);
+            String falloMensaje = objectMapper.writeValueAsString(fallo);
+            Message<String> kafkaMessage = MessageBuilder
+                    .withPayload(falloMensaje)
+                    .setHeader(KafkaHeaders.TOPIC, "propiedad-anuncio-fallido")
+                    .setHeader(KafkaHeaders.CORRELATION_ID, correlationId)
+                    .build();
+            kafkaTemplate.send(kafkaMessage);
+        }
+    }
+
 }

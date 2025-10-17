@@ -15,7 +15,8 @@ import java.util.UUID;
 @Component
 @AllArgsConstructor
 public class CineAdaptadorPersistencia implements CrearCineOutputPort, ListarCinesOutputPort, ListarCineEspecificoOutputPort, EditarCIneOutputPort,
-        ExisteCineOutputPort {
+        ExisteCineOutputPort,
+        CambioMonetarioOutputPort{
 
     private final CineRepository cineRepository;
     private final CineMapper cineMapper;
@@ -64,5 +65,12 @@ public class CineAdaptadorPersistencia implements CrearCineOutputPort, ListarCin
 
     public Boolean existeCineEspecifico(UUID id) {
         return this.cineRepository.existsById(id);
+    }
+
+    @Override
+    public Boolean cambioMonetario(UUID id, Double cantidad, Boolean estadoCambio) {
+        return this.cineRepository.ingresoSaldo(
+                id, estadoCambio, cantidad
+        );
     }
 }
