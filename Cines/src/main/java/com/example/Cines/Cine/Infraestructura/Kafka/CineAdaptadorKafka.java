@@ -16,6 +16,8 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.messaging.Message;
+import org.springframework.transaction.annotation.Transactional;
+
 @Component
 public class CineAdaptadorKafka {
     private final ExisteCineInputPort existeCineInputPort;
@@ -64,20 +66,27 @@ public class CineAdaptadorKafka {
 
     // para los anuncios comprados
     @KafkaListener(topics = "propiedad-anuncio-creado", groupId = "cines-group")
+    @Transactional
     public void handlePropiedadAnuncioCreado(@Payload String mensaje, @Header(KafkaHeaders.CORRELATION_ID) String correlationId) throws Exception {
         AnuncioCreadoDTO evento = objectMapper.readValue(mensaje, AnuncioCreadoDTO.class);
-
         boolean exito = false;
         String motivoFallo = "Error desconocido";
-        if (!existeCineInputPort.existeCineEspecifico(evento.getIdCine())) {
-            motivoFallo = "Cine no existe";
+        System.out.println("dinero: "+evento.getCosto()+" id: "+ evento.getIdCine());
+
+        // Validate DTO
+        if (evento.getIdCine() == null || evento.getCosto() <= 0) {
+            motivoFallo = "Invalid cineId or costo: " + evento;
+        } else if (!existeCineInputPort.existeCineEspecifico(evento.getIdCine())) {
+            motivoFallo = "Cine does not exist: " + evento.getIdCine();
         } else {
-            exito = this.cambioMonetarioInputPort.cambioMonetario(evento.getIdCine(), evento.getCosto(), true);
+            System.out.println("dinero: "+evento.getCosto());
+            exito = cambioMonetarioInputPort.cambioMonetario(evento.getIdCine(), evento.getCosto(), true);
             if (!exito) {
                 motivoFallo = "Failed to update cinema revenue";
             }
         }
 
+        // Publish response
         if (exito) {
             CineActualizadoDTO respuesta = new CineActualizadoDTO();
             respuesta.setAnuncioId(evento.getAnuncioId());
@@ -90,6 +99,8 @@ public class CineAdaptadorKafka {
                     .build();
             kafkaTemplate.send(kafkaMessage);
         } else {
+            System.out.println("aca falla-------------");
+            System.out.println(evento.getAnuncioId());
             AnuncioFallidoDTO fallo = new AnuncioFallidoDTO();
             fallo.setAnuncioId(evento.getAnuncioId());
             fallo.setMotivoFallo(motivoFallo);
