@@ -15,13 +15,16 @@ public class Cine {
     private String ubicacion;
     private String telefono;
     private LocalDate fechaCreacion;
+    private double cartera;
 
 
-    public Cine(UUID id, String nombre, String ubicacion, String telefono, LocalDate fechaCreacion) {
+    public Cine(UUID id, String nombre, String ubicacion, String telefono, LocalDate fechaCreacion,
+                double cartera) {
         this.id = id;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.telefono = telefono;
         this.fechaCreacion = fechaCreacion;
+        this.cartera = cartera;
     }
 }

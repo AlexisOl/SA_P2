@@ -36,7 +36,8 @@ public class CrearCIneServicio implements CrearCineInputPort {
                         crearCineDTO.getNombre(),
                         crearCineDTO.getUbicacion(),
                         crearCineDTO.getTelefono(),
-                        LocalDate.now()
+                        LocalDate.now(),
+                        crearCineDTO.getCartera()
                 )
         );
 
