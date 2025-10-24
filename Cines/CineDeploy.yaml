@@ -16,17 +16,28 @@ spec:
     spec:
       containers:
         - name: cine
-          image: alexxus/microservicio-cine:v4
+          image: alexxus/microservicio-cine:a12ebd7d20e2546dd00db22dd61cd1ccffb596fd
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
               protocol: TCP
           env:
+            # Eureka
             - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
               value: "http://eureka-service:8765/eureka/"
+            # Base de datos
             - name: SPRING_DATASOURCE_URL
               value: jdbc:mariadb://40.233.27.238:3307/cinema_db
             - name: SPRING_DATASOURCE_USERNAME
               value: app_user
             - name: SPRING_DATASOURCE_PASSWORD
               value: appSa456.
+            # Kafka MSK
+            - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+              value: b-1.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094,b-2.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094
+            - name: SPRING_KAFKA_CONSUMER_GROUP_ID
+              value: mcsv-cines-group
+            - name: SPRING_KAFKA_PRODUCER_ACKS
+              value: all
+            - name: SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET
+              value: earliest
