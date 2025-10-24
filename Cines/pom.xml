@@ -152,6 +152,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
+
+        <!-- clientde kafk-a-->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>3.9.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -184,6 +194,8 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
+
+
 
 
             <!-- Spring Boot Maven Plugin -->
