@@ -17,21 +17,24 @@ spring:
     database-platform: org.hibernate.dialect.MariaDBDialect
 
   kafka:
-    bootstrap-servers: b-1.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094,b-2.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094
+    bootstrap-servers:
+      - b-1.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094
+      - b-2.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094
+    consumer:
+      group-id: anuncios-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        security.protocol: SSL
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       acks: all
-    consumer:
-      group-id: ${spring.application.name}-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      max-poll-records: 100      # Número de mensajes por poll
-    properties:
-      security.protocol: PLAINTEXT
-      request.timeout.ms: 60000
-      retry.backoff.ms: 100
+      properties:
+        security.protocol: SSL
+
+
 
 eureka:
   client:
