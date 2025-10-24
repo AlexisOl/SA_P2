@@ -20,15 +20,15 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: "1Gi"
+              memory: "3Gi"
             requests:
-              memory: "512Mi"
+              memory: "2Gi"
           ports:
             - containerPort: 8081
               protocol: TCP
           env:
             - name: JAVA_OPTS
-              value: "-Xmx512m -Xms256m"
+              value: "-Xmx2g -Xms1g"
             # Eureka
             - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
               value: "http://eureka-service:8765/eureka/"
@@ -48,4 +48,4 @@ spec:
               value: all
             - name: SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET
               value: earliest
-              
+
