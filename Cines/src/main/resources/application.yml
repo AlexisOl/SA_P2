@@ -17,6 +17,8 @@ spring:
     database-platform: org.hibernate.dialect.MariaDBDialect
 
   kafka:
+    admin:
+      auto-create: true
     bootstrap-servers:
       - b-1.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094
       - b-2.kafkap2sa.uqqw98.c10.kafka.us-east-1.amazonaws.com:9094
