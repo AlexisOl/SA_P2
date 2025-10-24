@@ -18,10 +18,17 @@ spec:
         - name: cine
           image: alexxus/microservicio-cine:a12ebd7d20e2546dd00db22dd61cd1ccffb596fd
           imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "1Gi"
+            requests:
+              memory: "512Mi"
           ports:
             - containerPort: 8081
               protocol: TCP
           env:
+            - name: JAVA_OPTS
+              value: "-Xmx512m -Xms256m"
             # Eureka
             - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
               value: "http://eureka-service:8765/eureka/"
@@ -41,3 +48,4 @@ spec:
               value: all
             - name: SPRING_KAFKA_CONSUMER_AUTO_OFFSET_RESET
               value: earliest
+              
