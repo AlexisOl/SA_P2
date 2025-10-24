@@ -20,15 +20,16 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              memory: "2Gi"
+              memory: "1.5Gi"
             requests:
-              memory: "1Gi"
+              memory: "512Mi"
+
           ports:
             - containerPort: 8081
               protocol: TCP
           env:
             - name: JAVA_OPTS
-              value: "-Xmx2g -Xms1g"
+              value: "-Xmx1g -Xms512m"
             # Eureka
             - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
               value: "http://eureka-service:8765/eureka/"
