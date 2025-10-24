@@ -48,8 +48,12 @@ jobs:
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+          
+      - name: Apply Kubernetes manifests
+        run: kubectl apply -f Cines/CineDeploy.yaml
 
       - name: Deploy to Kubernetes
         run: |
           kubectl set image deployment/cine-deploy cine=${{ secrets.DOCKER_USERNAME }}/microservicio-cine:${GITHUB_SHA}
           kubectl rollout status deployment/cine-deploy
+
