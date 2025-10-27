@@ -1,11 +1,16 @@
 package com.example.Cines.Cine.Aplicacion.CasoUso.CrearCine;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CrearCineDTO {
     private String nombre;
     private String ubicacion;
