@@ -148,10 +148,17 @@ public class CineAdaptadorKafka {
         respuesta.setCorrelationId(evento.getCorrelationId());
         respuesta.setExito(exito);
         respuesta.setVentaId(evento.getVentaId());
+        respuesta.setFactura(evento.getFactura());
 
+        // para ventas
         String json = objectMapper.writeValueAsString(respuesta);
         String topic = exito ? "venta-actualizada" : "venta-fallido";
+        // para facturas
+        String topicFactura = exito ? "factura-actualizada" : "factura-fallido";
+
+
         kafkaTemplate.send(topic, json);
+        kafkaTemplate.send(topicFactura, json);
 
     }
 
