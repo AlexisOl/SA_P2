@@ -18,6 +18,23 @@ jobs:
           java-version: 21
           distribution: 'temurin'
 
+
+## para el repo de maven 
+      - name: Configure Maven Settings
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml << EOF
+          <settings>
+            <servers>
+              <server>
+                <id>github</id>
+                <username>${{ github.actor }}</username>
+                <password>${{ secrets.TOKEN_MAVEN }}</password>
+              </server>
+            </servers>
+          </settings>
+          EOF
+
       - name: Build Java project
         run: mvn -f Cines/pom.xml clean package -DskipTests
 
