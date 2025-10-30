@@ -44,11 +44,10 @@
 
     <dependencies>
 
-
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>comun</artifactId>
-            <version>1.0.26-SNAPSHOT</version>
+            <version>1.0.38-SNAPSHOT</version>
         </dependency>
         <!-- Spring Boot -->
         <dependency>
