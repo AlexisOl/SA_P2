@@ -10,6 +10,7 @@ import com.example.Cines.Snacks.Infraestructura.Output.Mapper.SnacksMapper;
 import com.example.Cines.Snacks.Infraestructura.Output.Repository.SnacksRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class SnacksPersistenciaAdaptador implements CrearSnackOutputPort, Listar
     private final SnacksMapper snacksMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public Snacks ListarSnacksEspecificas(UUID id) {
         return this.snacksMapper.toSnacks(
                 this.snacksRepository.findById(id).get()
@@ -29,6 +31,7 @@ public class SnacksPersistenciaAdaptador implements CrearSnackOutputPort, Listar
     }
 
     @Override
+    @Transactional
     public Snacks CrearSnack(Snacks dto) {
         return this.snacksMapper.toSnacks(
                 this.snacksRepository.save(this.snacksMapper.toSnacksEntity(dto))
@@ -36,6 +39,7 @@ public class SnacksPersistenciaAdaptador implements CrearSnackOutputPort, Listar
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Snacks> ListarSnack(UUID id) {
         return this.snacksMapper.toSnacksList(
                 this.snacksRepository.findAllByIdCine_Id(id)
