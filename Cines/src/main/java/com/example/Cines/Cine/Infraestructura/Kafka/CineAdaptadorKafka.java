@@ -8,6 +8,7 @@ import com.example.Cines.Cine.Infraestructura.Kafka.DTO.EstadoMonetarioAnuncioCo
 import com.example.Cines.Cine.Infraestructura.Kafka.DTO.VerficarCIne.VerificarCineDTO;
 import com.example.Cines.Cine.Infraestructura.Kafka.DTO.VerficarCIne.VerificarCineRespuestaDTO;
 import com.example.comun.DTO.FacturaBoleto.CobroCineDTO;
+import com.example.comun.DTO.FacturaBoleto.DebitoCine.DebitoCineDTO;
 import com.example.comun.DTO.FacturaBoleto.FacturaBoletoCreadoDTO;
 import com.example.comun.DTO.FacturaBoleto.RespuestaFacturaBoletoCreadoDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -150,15 +151,15 @@ public class CineAdaptadorKafka {
         respuesta.setVentaId(evento.getVentaId());
         respuesta.setFactura(evento.getFactura());
 
-        // para ventas
-        String json = objectMapper.writeValueAsString(respuesta);
-        String topic = exito ? "venta-actualizada" : "venta-fallido";
-        // para facturas
-        String topicFactura = exito ? "factura-actualizada" : "factura-fallido";
-
-
-        kafkaTemplate.send(topic, json);
-        kafkaTemplate.send(topicFactura, json);
+//        // para ventas
+//        String json = objectMapper.writeValueAsString(respuesta);
+//        String topic = exito ? "venta-actualizada" : "venta-fallido";
+//        // para facturas
+//        String topicFactura = exito ? "factura-actualizada" : "factura-fallido";
+//
+//
+//        kafkaTemplate.send(topic, json);
+//        kafkaTemplate.send(topicFactura, json);
 
     }
 
@@ -170,5 +171,30 @@ public class CineAdaptadorKafka {
         nuevaRespuesta.setVentaId(ventaId);
         return nuevaRespuesta;
     }
+
+    //substraer para el cine en caso no este bien la transaccion
+    @KafkaListener(topics = "debito-cine", groupId = "cines-group")
+    @Transactional
+    public void debitarCine(@Payload String mensaje, @Header(KafkaHeaders.CORRELATION_ID) String correlationId) throws Exception {
+        DebitoCineDTO evento = objectMapper.readValue(mensaje, DebitoCineDTO.class);
+        String motivoFallo = "Error desconocido";
+        boolean exito = false;
+        if (evento.getIdCine() == null || evento.getMonto() <= 0) {
+            motivoFallo = "Costo o cine invalido: " + evento;
+        } else if (!existeCineInputPort.existeCineEspecifico(evento.getIdCine())) {
+            motivoFallo = "Cine no existe: " + evento.getIdCine();
+        } else {
+            System.out.println("dinero acaaaaaaaaaaaaaaaaaa: "+evento.getMonto());
+            System.out.println("debitaaaaaaaaaa");
+            exito = cambioMonetarioInputPort.cambioMonetario(evento.getIdCine(), -evento.getMonto(), true);
+            if (!exito) {
+                motivoFallo = "NO se pudo actualizar";
+            }
+        }
+
+
+
+    }
+
 
 }
