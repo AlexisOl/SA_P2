@@ -31,9 +31,9 @@ class CrearCIneServicioTest {
     @Test
     void createCine_deberiaLlamarAlOutputPortYRetornarCine() {
         // Arrange
-        CrearCineDTO dto = new CrearCineDTO("Cine Lux", "Zona 1", "12345678", 1500.0, 15000.0);
+        CrearCineDTO dto = new CrearCineDTO("Cine Lux", "Zona 1", "12345678", 1500.0, 200.0, 15000.0);
 
-        Cine cineGuardado = new Cine(UUID.randomUUID(), "Cine Lux", "Zona 1", "12345678", LocalDate.now(), 15000.0);
+        Cine cineGuardado = new Cine(UUID.randomUUID(), "Cine Lux", "Zona 1", "12345678", LocalDate.now(), 200.0, 15000.0);
         when(crearCineOutputPort.createCine(any(Cine.class))).thenReturn(cineGuardado);
 
         // Act
