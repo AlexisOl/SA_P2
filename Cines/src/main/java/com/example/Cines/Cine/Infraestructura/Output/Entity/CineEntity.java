@@ -31,6 +31,8 @@ public class CineEntity {
     @Column(nullable = false)
     private LocalDate fechaCreacion;
     @Column(nullable = false)
+    private double costoOcultacion;
+    @Column(nullable = false)
     private double cartera;
 
 }

@@ -16,7 +16,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CineAdaptadorPersistencia implements CrearCineOutputPort, ListarCinesOutputPort, ListarCineEspecificoOutputPort, EditarCIneOutputPort,
         ExisteCineOutputPort,
-        CambioMonetarioOutputPort{
+        CambioMonetarioOutputPort,
+        ListarCinesQueNoEstanBloqueadosOutputPort{
 
     private final CineRepository cineRepository;
     private final CineMapper cineMapper;
@@ -71,6 +72,13 @@ public class CineAdaptadorPersistencia implements CrearCineOutputPort, ListarCin
     public Boolean cambioMonetario(UUID id, Double cantidad, Boolean estadoCambio) {
         return this.cineRepository.ingresoSaldo(
                 id, estadoCambio, cantidad
+        );
+    }
+
+    @Override
+    public List<Cine> listaCinesAnunciosNoBloqueados(List<UUID> idCines) {
+        return this.cineMapper.toCineList(
+                this.cineRepository.cineBloqueoEnFechaDeterminada(idCines)
         );
     }
 }

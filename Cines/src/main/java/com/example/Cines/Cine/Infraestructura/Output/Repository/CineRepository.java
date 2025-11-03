@@ -1,5 +1,6 @@
 package com.example.Cines.Cine.Infraestructura.Output.Repository;
 
+import com.example.Cines.BloqueoAnuncio.Infraestructura.Output.Entity.BloqueoAnuncioEntity;
 import com.example.Cines.Cine.Infraestructura.Output.Entity.CineEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -7,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public interface CineRepository extends JpaRepository<CineEntity, UUID> {
@@ -33,6 +36,15 @@ public interface CineRepository extends JpaRepository<CineEntity, UUID> {
     }
 
 
+
+
+    @Query("SELECT c " +
+            "FROM CineEntity c " +
+            "where (" +
+            "   (c.id not  in :listado) " +
+            ")")
+    List<CineEntity> cineBloqueoEnFechaDeterminada(
+            @Param("listado") List<UUID> uuids);
+
     // ahora deberia de ingresar en todos los cines que no esten bloqueados en fechas
-    
 }
