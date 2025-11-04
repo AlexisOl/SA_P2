@@ -10,7 +10,11 @@ spring:
     url: jdbc:mariadb://40.233.27.238:3307/cinema_db
     username: app_user
     password: appSa456.
-
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
   jpa:
     hibernate:
       ddl-auto: update

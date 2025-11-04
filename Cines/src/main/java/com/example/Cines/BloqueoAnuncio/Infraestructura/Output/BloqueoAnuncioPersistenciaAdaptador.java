@@ -16,7 +16,8 @@ import java.util.UUID;
 @Component
 @AllArgsConstructor
 public class BloqueoAnuncioPersistenciaAdaptador implements CrearBloqueoAnunciosCineOutputPort, ExisteBloqueoAnuncioCIne,
-        ListadoBloqueosCineOutputPort, CineConBloqueoActualmenteOutputPort, CinesAnuncioBloqueadoFechaOutputPort, CalculoDiasSolapados {
+        ListadoBloqueosCineOutputPort, CineConBloqueoActualmenteOutputPort, CinesAnuncioBloqueadoFechaOutputPort, CalculoDiasSolapados,
+        ElimiinarBLoqueoCineEspecificoOutputPort, DeterminarDiasSolapadosBloqueoOutputport{
     private BloqueoAnuncioMapper bloqueoAnuncioMapper;
     private BloqueoAnuncioRepository bloqueoAnuncioRepository;
 
@@ -67,5 +68,16 @@ public class BloqueoAnuncioPersistenciaAdaptador implements CrearBloqueoAnuncios
     @Override
     public Object diasSolapados(UUID idCine, LocalDate FECHA_INICIO, LocalDate FECHA_FINAL) {
         return this.bloqueoAnuncioRepository.determinaDiasSolapados(idCine, FECHA_INICIO, FECHA_FINAL);
+    }
+
+    @Override
+    public void elimiinarBLoqueoCineEspecificoOutputPort(UUID id) {
+        this.bloqueoAnuncioRepository.deleteById(id);
+
+    }
+
+    @Override
+    public Object diasSolapadosBloqueo(UUID idCine, LocalDate FECHA_INICIO, LocalDate FECHA_FINAL,  LocalDate FECHA_INICIO_bloqueo, LocalDate FECHA_FINAL_bloqueo) {
+        return this.bloqueoAnuncioRepository.determinaDiasSolapadosBloqueoAnuncio(idCine, FECHA_INICIO, FECHA_FINAL, FECHA_INICIO_bloqueo, FECHA_FINAL_bloqueo);
     }
 }
