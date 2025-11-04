@@ -45,15 +45,23 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
 
     @Override
     public List<Salas> ListarSalasPorCine(UUID id) {
-        return this.salasMapper.toSalasList(
+        List<Salas> listados = this.salasMapper.toSalasList(
                 this.salasRepository.findAllByIdCine_Id(id)
         );
+
+        for (Salas salas : listados) {
+            System.out.println(salas.getMatrizAsientos().getFilas()+ "--------"+ salas.getNombre());
+
+        }
+        return listados;
+
     }
 
     @Override
     public Salas listarSalaEspecifica(UUID id) {
-        return this.salasMapper.toSalas(
+        Salas sala = this.salasMapper.toSalas(
                 this.salasRepository.findById(id).get()
         );
+        return sala;
     }
 }

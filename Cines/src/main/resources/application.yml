@@ -49,3 +49,19 @@ eureka:
       defaultZone: http://eureka-service:8765/
     register-with-eureka: true
     fetch-registry: true
+
+app:
+  frontend:
+    base-url: https://tu-frontend.com
+  security:
+    dev-return-token: true
+  kafka:
+    enabled: true
+    topic:
+      cines: cines.events.v1
+      verificar-cine: verificar-cine
+      propiedad-anuncio-creado: propiedad-anuncio-creado
+      propiedad-facturacion-generada: propiedad-facturacion-generada
+      credito-cine: credito-cine
+      debito-cine: debito-cine
+      generar-bloqueo-anuncio: generar-bloqueo-anuncio
