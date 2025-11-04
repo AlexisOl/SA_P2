@@ -44,7 +44,7 @@ public class CineAdapatadorRest {
 
 
     @GetMapping("/{id}")
-    public ResponseCineDTO listadoCineEspecifico(@PathVariable UUID id) {
+    public ResponseCineDTO listadoCineEspecifico(@PathVariable("id") UUID id) {
         return this.cineRestMapper.toReponseCineDto(this.listarCineEspecificoInputPort.listarCineEspecifico(id)) ;
     }
 
@@ -55,7 +55,7 @@ public class CineAdapatadorRest {
 //    }
 
     @PutMapping("/{id}")
-    public ResponseCineDTO EditarCineEspecifico(@PathVariable UUID id, @Valid @RequestBody EditarCineDto editarCineDto) {
+    public ResponseCineDTO EditarCineEspecifico(@PathVariable("id") UUID id, @Valid @RequestBody EditarCineDto editarCineDto) {
 
               return   this.cineRestMapper.toReponseCineDto(
                       this.editarCineInputPort.editarCine(id, editarCineDto));
