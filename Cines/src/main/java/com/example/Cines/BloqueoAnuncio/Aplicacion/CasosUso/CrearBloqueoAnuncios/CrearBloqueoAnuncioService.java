@@ -44,11 +44,12 @@ public class CrearBloqueoAnuncioService  implements CrearBloqueoAnunciosCineInpu
         }
         Cine cine = this.listarCineEspecificoOutputPort.listarCineEspecifico(crearBloqueoAnuncioDTO.getCine());
 
-
+        System.out.println(cine.getId()+ "--- "+ crearBloqueoAnuncioDTO.getCine());
 
         // verificar si no existe previamente un bloqueo
         if(this.existeBloqueoAnuncioCIne.existeBloqueoAnuncioCIne(crearBloqueoAnuncioDTO.getCine(),
                                                                     crearBloqueoAnuncioDTO.getFecha(),fechaFin)) {
+            System.out.println("si existe un cine ya registrado cpon bloqueo");
             throw new RuntimeException("Ya existe un bloqueo previo en esta fecha para el cine");
         }
 
