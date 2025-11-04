@@ -5,6 +5,7 @@ import com.example.Cines.Salas.Aplicacion.Ports.Input.CrearSalaEnCineInputPort;
 import com.example.Cines.Salas.Aplicacion.Ports.Input.EditarSalaInputPort;
 import com.example.Cines.Salas.Aplicacion.Ports.Input.ListarSalaEspecificaInputPort;
 import com.example.Cines.Salas.Aplicacion.Ports.Input.ListarSalasPorCineInputPort;
+import com.example.Cines.Salas.Dominio.Salas;
 import com.example.Cines.Salas.Infraestructura.Input.Rest.Mapper.SalasRestMapper;
 import com.example.Cines.Salas.Infraestructura.Input.Rest.Models.ResponseSalasDTO;
 import com.example.Cines.Snacks.Aplicacion.CasoUso.CrearSnacks.CrearSnacksDTO;
@@ -45,8 +46,8 @@ public class SalasRestAdaptador {
     }
 
     @GetMapping("/cine/{idCine}")
-    public List<ResponseSalasDTO> listadoSalasPorCine(@PathVariable("idCine") UUID idCine) {
-        return this.salasRestMapper.toResponseSalasDTOList(this.listarSalasPorCineInputPort.ListarSalasPorCine(idCine)) ;
+    public List<Salas> listadoSalasPorCine(@PathVariable("idCine") UUID idCine) {
+        return (this.listarSalasPorCineInputPort.ListarSalasPorCine(idCine)) ;
     }
 
     @GetMapping("/{id}")
