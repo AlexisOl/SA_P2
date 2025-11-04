@@ -1,10 +1,11 @@
 package com.example.Cines.Salas.Dominio.ObjetosValor;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@Data
 @Getter
 @Setter
+@NoArgsConstructor
 public class ValidacionesSala {
     private boolean validar_comnentarios;
     private boolean validar_calificaciones;
