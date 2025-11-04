@@ -45,7 +45,7 @@ public class CineAdaptadorPersistencia implements CrearCineOutputPort, ListarCin
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Cine listarCineEspecifico(UUID id) {
         return this.cineMapper.toCine(
                 this.cineRepository.findById(id).get()
