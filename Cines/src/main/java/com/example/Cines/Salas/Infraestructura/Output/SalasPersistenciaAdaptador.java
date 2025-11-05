@@ -1,15 +1,10 @@
 package com.example.Cines.Salas.Infraestructura.Output;
 
-import com.example.Cines.Cine.Aplicacion.Ports.Output.ListarCineEspecificoOutputPort;
-import com.example.Cines.Cine.Dominio.Cine;
-import com.example.Cines.Salas.Aplicacion.Ports.Output.CrearSalaEnCineOutputPort;
-import com.example.Cines.Salas.Aplicacion.Ports.Output.EditarSalaOutputPort;
-import com.example.Cines.Salas.Aplicacion.Ports.Output.ListarSalaEspecificaOutputPort;
-import com.example.Cines.Salas.Aplicacion.Ports.Output.ListarSalasPorCineOutputPort;
+import com.example.Cines.Salas.Aplicacion.Ports.Output.*;
 import com.example.Cines.Salas.Dominio.Salas;
+import com.example.Cines.Salas.Infraestructura.Output.Entity.SalasEntity;
 import com.example.Cines.Salas.Infraestructura.Output.Mapper.SalasMapper;
 import com.example.Cines.Salas.Infraestructura.Output.Repository.SalasRepository;
-import com.sun.jdi.PrimitiveValue;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +13,8 @@ import java.util.UUID;
 
 @Component
 @AllArgsConstructor
-public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, EditarSalaOutputPort, ListarSalaEspecificaOutputPort, ListarSalasPorCineOutputPort {
+public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, EditarSalaOutputPort, ListarSalaEspecificaOutputPort, ListarSalasPorCineOutputPort,
+        CambiarVisibildadOutputPort, CambiarVisibildadComentariosOutputPort , CambiarVisibildadCalificacionesOutputPort{
 
     private final SalasRepository salasRepository;
     private final SalasMapper   salasMapper;
@@ -63,5 +59,32 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
                 this.salasRepository.findById(id).get()
         );
         return sala;
+    }
+
+    @Override
+    public void cambiarVisbilidad(UUID id) {
+        SalasEntity entidad = this.salasRepository.findById(id).orElse(null);
+        if (entidad == null) return;
+        entidad.setVisible(!entidad.isVisible());
+        this.salasRepository.save(entidad);
+
+    }
+
+    @Override
+    public void cambiarVisbilidadComentarios(UUID id) {
+        SalasEntity entidad = this.salasRepository.findById(id).orElse(null);
+        if (entidad == null) return;
+        entidad.setValidarComnentarios(!entidad.isValidarComnentarios());
+        this.salasRepository.save(entidad);
+
+    }
+
+    @Override
+    public void cambiarVisbilidadCalificaciones(UUID id) {
+        SalasEntity entidad = this.salasRepository.findById(id).orElse(null);
+        if (entidad == null) return;
+        entidad.setValidarCalificaciones(!entidad.isValidarCalificaciones());
+        this.salasRepository.save(entidad);
+
     }
 }

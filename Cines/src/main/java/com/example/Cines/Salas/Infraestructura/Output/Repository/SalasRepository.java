@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface SalasRepository extends JpaRepository<SalasEntity, UUID> {
     List<SalasEntity> findAllByIdCine_Id(UUID idCineId);
+
 }
