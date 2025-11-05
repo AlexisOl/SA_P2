@@ -57,19 +57,19 @@ public class SalasRestAdaptador {
                 .body(this.salasRestMapper.toResponseSalasDTO(this.listarSalaEspecificaInputPort.listarSalaEspecifica(id))) ;
     }
 
-    @PostMapping("/visible/{idCine}")
+    @PutMapping("/visible/{idCine}")
     @Transactional
     public void cambioVisibilidad(@PathVariable("idCine") UUID idCine) {
                         cambiarVisibildadInputPort.cambiarVisbilidad((idCine));
     }
 
-    @PostMapping("/comentarios/{idCine}")
+    @PutMapping("/comentarios/{idCine}")
     @Transactional
     public void cambioVisibilidadComentarios(@PathVariable("idCine") UUID idCine) {
         cambiarVisibildadComentariosInputPort.cambiarVisbilidadComentarios((idCine));
     }
 
-    @PostMapping("/calificaicones/{idCine}")
+    @PutMapping("/calificaicones/{idCine}")
     @Transactional
     public void cambioVisibilidadCalificaciones(@PathVariable("idCine") UUID idCine) {
         cambiarVisibildadCalificacionesInputPorts.cambiarVisbilidadCalificaciones((idCine));
