@@ -1,10 +1,7 @@
 package com.example.Cines.Salas.Infraestructura.Input.Rest;
 
 import com.example.Cines.Salas.Aplicacion.CasoUso.CrearSala.CrearSalaDTO;
-import com.example.Cines.Salas.Aplicacion.Ports.Input.CrearSalaEnCineInputPort;
-import com.example.Cines.Salas.Aplicacion.Ports.Input.EditarSalaInputPort;
-import com.example.Cines.Salas.Aplicacion.Ports.Input.ListarSalaEspecificaInputPort;
-import com.example.Cines.Salas.Aplicacion.Ports.Input.ListarSalasPorCineInputPort;
+import com.example.Cines.Salas.Aplicacion.Ports.Input.*;
 import com.example.Cines.Salas.Dominio.Salas;
 import com.example.Cines.Salas.Infraestructura.Input.Rest.Mapper.SalasRestMapper;
 import com.example.Cines.Salas.Infraestructura.Input.Rest.Models.ResponseSalasDTO;
@@ -34,6 +31,10 @@ public class SalasRestAdaptador {
     private final ListarSalasPorCineInputPort listarSalasPorCineInputPort;
     //private final EditarSalaInputPort editarSalaInputPort;
 
+    private final CambiarVisibildadInputPort cambiarVisibildadInputPort;
+    private final CambiarVisibildadCalificacionesInputPort cambiarVisibildadCalificacionesInputPorts;
+    private final CambiarVisibildadComentariosInputPort cambiarVisibildadComentariosInputPort;
+
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
@@ -54,5 +55,23 @@ public class SalasRestAdaptador {
     public ResponseEntity<ResponseSalasDTO> listadoSalasEspecifica(@PathVariable("id")  UUID id) {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .body(this.salasRestMapper.toResponseSalasDTO(this.listarSalaEspecificaInputPort.listarSalaEspecifica(id))) ;
+    }
+
+    @PostMapping("/visible/{idCine}")
+    @Transactional
+    public void cambioVisibilidad(@PathVariable("idCine") UUID idCine) {
+                        cambiarVisibildadInputPort.cambiarVisbilidad((idCine));
+    }
+
+    @PostMapping("/comentarios/{idCine}")
+    @Transactional
+    public void cambioVisibilidadComentarios(@PathVariable("idCine") UUID idCine) {
+        cambiarVisibildadComentariosInputPort.cambiarVisbilidadComentarios((idCine));
+    }
+
+    @PostMapping("/calificaicones/{idCine}")
+    @Transactional
+    public void cambioVisibilidadCalificaciones(@PathVariable("idCine") UUID idCine) {
+        cambiarVisibildadCalificacionesInputPorts.cambiarVisbilidadCalificaciones((idCine));
     }
 }
