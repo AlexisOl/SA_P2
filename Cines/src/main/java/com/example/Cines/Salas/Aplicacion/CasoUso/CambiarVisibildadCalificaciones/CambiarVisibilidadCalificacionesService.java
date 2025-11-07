@@ -16,6 +16,7 @@ public class CambiarVisibilidadCalificacionesService implements CambiarVisibilda
     }
     @Override
     public void cambiarVisbilidadCalificaciones(UUID id) {
+        System.out.println("aca");
         this.cambiarVisibildadCalificacionesOutputPort.cambiarVisbilidadCalificaciones(id);
     }
 }
