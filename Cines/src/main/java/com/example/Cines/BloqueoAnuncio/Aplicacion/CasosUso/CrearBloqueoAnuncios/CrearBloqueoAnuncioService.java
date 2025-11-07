@@ -37,7 +37,7 @@ public class CrearBloqueoAnuncioService  implements CrearBloqueoAnunciosCineInpu
     public BloqueoAnuncio CrearBloqueoAnuncio(CrearBloqueoAnuncioDTO crearBloqueoAnuncioDTO) {
 
         LocalDate fechaFin = crearBloqueoAnuncioDTO.getFecha().plusDays(crearBloqueoAnuncioDTO.getCantidad_dias());
-
+        System.out.println(crearBloqueoAnuncioDTO.getCine());
         //buscar si existe cine
         if (!this.existeCineOutputPort.existeCineEspecifico(crearBloqueoAnuncioDTO.getCine())){
             throw new RuntimeException("este cine no existe");
