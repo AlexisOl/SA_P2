@@ -56,6 +56,7 @@ public class BloqueoAnuncioKafkaAdaptador {
         // Deserializar el mensaje
         BloqueoCineDTO solicitud = objectMapper.readValue(mensaje, BloqueoCineDTO.class);
         //guarddar
+        System.out.println(solicitud.getCine()+" llega   "+solicitud.getFecha());
         // descuenta a los cines
         BloqueoAnuncio cine = this.crearBloqueoAnunciosCineInputPort.CrearBloqueoAnuncio(new CrearBloqueoAnuncioDTO( solicitud.getFecha(), solicitud.getCantidad_dias(),solicitud.getCine()));
         List<DiasDescuentoAnunciosBloqueados> anunciosBloqueados = new ArrayList<>();
