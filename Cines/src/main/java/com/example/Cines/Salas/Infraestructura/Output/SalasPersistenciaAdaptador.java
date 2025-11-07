@@ -7,6 +7,7 @@ import com.example.Cines.Salas.Infraestructura.Output.Mapper.SalasMapper;
 import com.example.Cines.Salas.Infraestructura.Output.Repository.SalasRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -20,6 +21,8 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
     private final SalasMapper   salasMapper;
 
     @Override
+    @Transactional
+
     public Salas crearSalaEnCine(Salas salas) {
         System.out.println(salas.toString());
         return this.salasMapper.toSalas(
@@ -54,6 +57,8 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
     }
 
     @Override
+    @Transactional
+
     public Salas listarSalaEspecifica(UUID id) {
         Salas sala = this.salasMapper.toSalas(
                 this.salasRepository.findById(id).get()
@@ -62,6 +67,8 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
     }
 
     @Override
+    @Transactional
+
     public void cambiarVisbilidad(UUID id) {
         SalasEntity entidad = this.salasRepository.findById(id).orElse(null);
         if (entidad == null) return;
@@ -71,6 +78,8 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
     }
 
     @Override
+    @Transactional
+
     public void cambiarVisbilidadComentarios(UUID id) {
         SalasEntity entidad = this.salasRepository.findById(id).orElse(null);
         if (entidad == null) return;
@@ -80,9 +89,16 @@ public class SalasPersistenciaAdaptador implements CrearSalaEnCineOutputPort, Ed
     }
 
     @Override
+    @Transactional
     public void cambiarVisbilidadCalificaciones(UUID id) {
+        System.out.println(id);
         SalasEntity entidad = this.salasRepository.findById(id).orElse(null);
+        System.out.println("aca2");
+
         if (entidad == null) return;
+        System.out.println(!entidad.isValidarCalificaciones());
+        System.out.println("aca3"+ entidad.getNombre());
+
         entidad.setValidarCalificaciones(!entidad.isValidarCalificaciones());
         this.salasRepository.save(entidad);
 

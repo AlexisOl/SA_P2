@@ -15,6 +15,8 @@ import com.example.comun.DTO.BloqueoAnuncios.BloqueoCineDTO;
 import com.example.comun.DTO.BloqueoAnuncios.CreditoUsuarioBloqueo;
 import com.example.comun.DTO.BloqueoAnuncios.CreditoUsuarioBloqueoEspecifico;
 import com.example.comun.DTO.BloqueoAnuncios.PeticionBloqueoAnuncio;
+import com.example.comun.DTO.DW.ListadoFacturadoAnuncio;
+import com.example.comun.DTO.DW.ReplicacionFacturaAnuncioDTO;
 import com.example.comun.DTO.FacturaAnuncio.DiasDescuentoAnunciosBloqueados;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
@@ -31,6 +33,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 @AllArgsConstructor
@@ -47,6 +50,9 @@ public class BloqueoAnuncioKafkaAdaptador {
 
     @KafkaListener(topics = "generar-bloqueo-anuncio", groupId = "cines-group")
     public void verificarCine(@Payload String mensaje, @Header(KafkaHeaders.CORRELATION_ID) String correlationId) throws Exception {
+        //Para el DW
+        List<ReplicacionFacturaAnuncioDTO> listadoReplicacionDW  = new ArrayList<>();
+
         // Deserializar el mensaje
         BloqueoCineDTO solicitud = objectMapper.readValue(mensaje, BloqueoCineDTO.class);
         //guarddar
@@ -97,6 +103,19 @@ public class BloqueoAnuncioKafkaAdaptador {
 
                     liotadoCredito.add(nuevoCredito);
 
+                    //aca genera los valores
+                    ReplicacionFacturaAnuncioDTO replicacionFacturaAnuncioDTO  = new ReplicacionFacturaAnuncioDTO();
+                    replicacionFacturaAnuncioDTO.setCine(cine.getIdCine().getId());
+                    replicacionFacturaAnuncioDTO.setAnuncio(bloque.getAnuncio());
+                    replicacionFacturaAnuncioDTO.setUsuario(bloque.getUsuario());
+                    replicacionFacturaAnuncioDTO.setMonto(precioEspecifico);
+                    replicacionFacturaAnuncioDTO.setFecha(cine.getFecha());
+                    replicacionFacturaAnuncioDTO.setId(UUID.randomUUID());
+                    replicacionFacturaAnuncioDTO.setDetalle("Pago de ocultacion de anuncio");
+                    replicacionFacturaAnuncioDTO.setEstado("PENDIENTE");
+
+                    listadoReplicacionDW.add(replicacionFacturaAnuncioDTO);
+
 
                     anunciosBloqueados.add(cineEspecifico);
 
@@ -126,6 +145,20 @@ public class BloqueoAnuncioKafkaAdaptador {
                 .build();
 
         kafkaTemplate.send(kafkaMessage);
+
+        // envio al dw
+
+        ListadoFacturadoAnuncio nuevoValor = new ListadoFacturadoAnuncio();
+        nuevoValor.setListado(listadoReplicacionDW);
+        String respuestaDebito = objectMapper.writeValueAsString(nuevoValor);
+
+        Message<String> kafkaMessageDebitoUsuario = MessageBuilder
+                .withPayload(respuestaDebito)
+                .setHeader(KafkaHeaders.TOPIC, "ingreso-detalle-anuncio-bloqueo")
+                .setHeader(KafkaHeaders.CORRELATION_ID, correlationId)
+                .build();
+        kafkaTemplate.send(kafkaMessageDebitoUsuario);
+
     }
 }
 
